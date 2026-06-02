@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import HeroSection from "./sections/Hero/HeroSection";
-import NarrativeEngine from "./sections/NarrativeEngine/NarrativeEngine";
-import IntelligenceFlow from "./sections/IntelligenceFlow/IntelligenceFlow";
 import GlobalCanvas from "./components/canvas/GlobalCanvas";
 import { initSmoothScroll } from "./lib/smooth-scroll";
 
+import HumanSection from "./sections/Human/HumanSection";
+import ThoughtSection from "./sections/Thought/ThoughtSection";
+import QuestionSection from "./sections/Question/QuestionSection";
+import PromptSection from "./sections/Prompt/PromptSection";
+import IntelligenceFlow from "./sections/IntelligenceFlow/IntelligenceFlow";
 import ModelsSection from "./sections/Models/ModelsSection";
 import TokensSection from "./sections/Tokens/TokensSection";
 import ContextSection from "./sections/Context/ContextSection";
@@ -25,9 +28,12 @@ function App() {
   return (
     <>
       <GlobalCanvas />
-      <div className="relative z-0">
+      <div style={{ position: "relative", zIndex: 10, backgroundColor: "transparent" }}>
         <HeroSection />
-        <NarrativeEngine />
+        <HumanSection />
+        <ThoughtSection />
+        <QuestionSection />
+        <PromptSection />
         <IntelligenceFlow />
         <ModelsSection />
         <TokensSection />

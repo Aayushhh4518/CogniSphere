@@ -1,35 +1,21 @@
+import SceneWrapper from "../../components/storytelling/SceneWrapper";
+import NarrativeTitle from "../../components/storytelling/NarrativeTitle";
+
 export default function PromptSection() {
   return (
-    <section
-      style={{
-        minHeight: "100vh",
-        background: "#05070A",
-        color: "white",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <SceneWrapper>
       <div
         style={{
           border: "1px solid rgba(255,255,255,0.1)",
           padding: "1rem 2rem",
           borderRadius: "12px",
-          marginBottom: "2rem",
+          marginBottom: "1rem",
+          color: "white",
         }}
       >
         Build an AI startup
       </div>
-
-      <h2
-        style={{
-          fontSize: "clamp(2rem,5vw,4rem)",
-          textAlign: "center",
-        }}
-      >
-        Questions become prompts.
-      </h2>
-    </section>
+      <NarrativeTitle text="Questions become prompts." />
+    </SceneWrapper>
   );
 }
