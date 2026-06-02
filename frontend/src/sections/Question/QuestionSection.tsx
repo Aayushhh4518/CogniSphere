@@ -1,4 +1,4 @@
-export default function PromptSection() {
+export default function QuestionSection() {
   return (
     <section
       style={{
@@ -13,13 +13,12 @@ export default function PromptSection() {
     >
       <div
         style={{
-          border: "1px solid rgba(255,255,255,0.1)",
-          padding: "1rem 2rem",
-          borderRadius: "12px",
+          fontSize: "3rem",
           marginBottom: "2rem",
+          color: "#3B82F6",
         }}
       >
-        Build an AI startup
+        ?
       </div>
 
       <h2
@@ -28,7 +27,7 @@ export default function PromptSection() {
           textAlign: "center",
         }}
       >
-        Questions become prompts.
+        Curiosity becomes a question.
       </h2>
     </section>
   );
