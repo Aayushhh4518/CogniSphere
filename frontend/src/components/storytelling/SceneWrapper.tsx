@@ -12,9 +12,9 @@ export default function SceneWrapper({
         background: "#05070A",
         color: "white",
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "column",
       }}
     >
       {children}
