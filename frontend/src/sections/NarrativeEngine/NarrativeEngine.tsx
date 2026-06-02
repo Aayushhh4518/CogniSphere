@@ -6,6 +6,10 @@ const scenes = [
   "A thought begins.",
   "Curiosity becomes a question.",
   "Questions become prompts.",
+  "Prompts become tokens.",
+  "Tokens enter an AI model.",
+  "The model generates intelligence.",
+  "A response is created.",
 ];
 
 export default function NarrativeEngine() {
@@ -17,21 +21,18 @@ export default function NarrativeEngine() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=3000",
+        end: "+=6000",
         scrub: true,
         pin: true,
         onUpdate: (self) => {
           const progress = self.progress;
 
-          if (progress < 0.25) {
-            setSceneIndex(0);
-          } else if (progress < 0.5) {
-            setSceneIndex(1);
-          } else if (progress < 0.75) {
-            setSceneIndex(2);
-          } else {
-            setSceneIndex(3);
-          }
+          const index = Math.min(
+            Math.floor(progress * scenes.length),
+            scenes.length - 1
+          );
+
+          setSceneIndex(index);
         },
       },
     });

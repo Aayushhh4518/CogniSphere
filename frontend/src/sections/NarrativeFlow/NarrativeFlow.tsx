@@ -1,5 +1,5 @@
-import SceneWrapper from "../../components/storytelling/SceneWrapper";
-import NarrativeTitle from "../../components/storytelling/NarrativeTitle";
+import SceneWrapper from "../../Components/storytelling/SceneWrapper";
+import NarrativeTitle from "../../Components/storytelling/NarrativeTitle";
 
 export default function NarrativeFlow() {
   return (
