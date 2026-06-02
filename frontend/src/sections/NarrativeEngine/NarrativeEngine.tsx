@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "../../lib/gsap";
+import { useNarrativeStore } from "../../store/useNarrativeStore";
 
 const scenes = [
-  "Everything begins with a human.",
-  "A thought begins.",
-  "Curiosity becomes a question.",
-  "Questions become prompts.",
-  "Prompts become tokens.",
-  "Tokens enter an AI model.",
-  "The model generates intelligence.",
-  "A response is created.",
+  { title: "Human", description: "Everything begins with a human." },
+  { title: "Thought", description: "A thought begins." },
+  { title: "Question", description: "Curiosity becomes a question." },
+  { title: "Prompt", description: "Questions become prompts." },
+  { title: "Tokens", description: "Prompts become tokens." },
+  { title: "Model", description: "Tokens enter an AI model." },
+  { title: "Response", description: "A response is created." },
 ];
 
 export default function NarrativeEngine() {
@@ -21,11 +21,13 @@ export default function NarrativeEngine() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=6000",
+        end: "+=10000",
         scrub: true,
         pin: true,
         onUpdate: (self) => {
           const progress = self.progress;
+          
+          useNarrativeStore.getState().setProgress(progress);
 
           const index = Math.min(
             Math.floor(progress * scenes.length),
@@ -45,9 +47,10 @@ export default function NarrativeEngine() {
   return (
     <section
       ref={sectionRef}
+      className="relative z-10 w-full"
       style={{
-        height: "400vh",
-        background: "#05070A",
+        height: "1000vh",
+        background: "transparent",
       }}
     >
       <div
@@ -56,11 +59,24 @@ export default function NarrativeEngine() {
           top: 0,
           height: "100vh",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           padding: "2rem",
+          pointerEvents: "none",
         }}
       >
+        <span
+          style={{
+            color: "#3B82F6",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            marginBottom: "1.5rem",
+            fontWeight: 600,
+          }}
+        >
+          {scenes[sceneIndex].title}
+        </span>
         <h2
           style={{
             color: "white",
@@ -70,7 +86,7 @@ export default function NarrativeEngine() {
             lineHeight: 1.2,
           }}
         >
-          {scenes[sceneIndex]}
+          {scenes[sceneIndex].description}
         </h2>
       </div>
     </section>
